@@ -250,8 +250,7 @@
     min-width: 0;
   }
 
-  .page-media,
-  .page-image {
+  .page-media {
     width: 100%;
     max-height: 160px;
     object-fit: contain;
@@ -291,17 +290,6 @@
     animation: pulse 1s infinite;
     text-align: center;
     margin-top: 1rem;
-  }
-
-  .btn-close {
-    margin-top: 1rem;
-    background: var(--accent-blue);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-family: inherit;
-    border-radius: 4px;
   }
 
   @keyframes pulse {
