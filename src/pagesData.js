@@ -3,19 +3,19 @@
 // Une fois vos images ajoutées, décommentez les imports appropriés.
 
 import img1 from "./assets/images/paper.png";
-// import img2 from './assets/images/page-2.png';
-// import img3 from './assets/images/page-3.png';
-// import img4 from './assets/images/page-4.png';
-// import img5 from './assets/images/page-5.png';
-// import img6 from './assets/images/page-6.png';
-// import img7 from './assets/images/page-7.png';
-// import img8 from './assets/images/page-8.png';
+import img2 from './assets/images/montagne.png';
+import img3 from './assets/images/train.png';
+//import img4 from './assets/images/page-4.png';
+import img5 from './assets/images/protection.png';
+import img6 from './assets/images/kiss-lit.png';
+import img7 from './assets/images/cafe.png';
+import img8 from './assets/images/kiss.png';
 
 // import placeholder from './assets/images/bouton.png';
 
 export default [
 	{
-		title: "Dans la nuit",
+		title: "Un moment pour nous",
 		// Contenu possible par page :
 		// - title: string (affiché centré)
 		// - image: string (png/jpg/gif, affiché au-dessus du texte)
@@ -24,48 +24,62 @@ export default [
 		// Compat : text + text2 restent supportés si vous préférez.
 		paragraphs: [
 			"Je t'écris dans la douceur de la nuit, alors que tout est paisible. Ces mots viennent du cœur, pour toi...",
-			"Chaque instant avec toi est un trésor que je chéris profondément.",
+			"J'avais besoin de poser mes pensées pour que tu puisses voir ce qu'il y a à l'intérieur de moi ce soir..",
 		],
 		image: img1,
 		mediaPlacement: "below",
 	},
 	{
-		title: "Ces lectures",
+		title: "Le poids de mes journées",
 		paragraphs: [
-			"Ces moments où on ne fait rien, juste lire côte à côte. Le silence n'est jamais vide quand tu es là...",
+			"En ce moment, entre la thèse et mes projets, mes journées sont de longues ascensions qui me fatiguent beaucoup.",
+      "Parfois, mon corps et mon esprit réclament un peu de calme pour pouvoir continuer à avancer sereinement.",
 		],
-		// image: img2,
+		image: img2,
+    mediaPlacement: "right",
 	},
 	{
-		title: "Les trajets",
-		text: "Chaque trajet ensemble devient une aventure. La route importe peu quand c'est toi à mes côtés...",
-		// image: img3,
+		title: "Le rythme et la distance",
+		paragraphs: [ "Venir te voir est un bonheur, mais les trajets et l'organisation sont aussi des efforts que je fournis avec tout mon amour.",
+    "Si je choisis de rester travailler certains jours, c'est pour mieux préserver notre temps ensemble sans être épuisé."
+		],
+		image: img3,
+    mediaPlacement: "below",
 	},
 	{
-		title: "Ce qui m'a touché",
-		text: "Tu as su voir en moi ce que personne d'autre ne voyait. Mon cœur bat plus fort grâce à toi...",
-		// image: img4,
-		hasHeart: true,
+		title: "Mes peurs silencieuses",
+    paragraphs: ["Quand je sens que mes limites te blessent, je me sens envahi par une grande culpabilité et une peur de mal faire." , 
+      "J'ai besoin de savoir que je peux te dire mes contraintes sans que tu doutes de la force de mes sentiments pour toi."
+    ],
+    // image: img4,
 	},
 	{
-		title: "Je suis fatigué",
-		text: "Parfois le monde pèse lourd. Mais savoir que tu es là me donne la force de continuer...",
-		// image: img5,
+		title: "Ma protection",
+		paragraphs: ["Je suis quelqu'un de très indépendant, et m'ouvrir totalement est un apprentissage qui me demande du courage.",
+      "Ce n'est pas du détachement, c'est juste ma façon d'apprendre à aimer à deux. J'ai parfois le réflexe de me protéger derrière mes murailles quand j'ai peur."
+    ],
+		 image: img5,
+     mediaPlacement: "above",
 	},
 	{
-		title: "J'aimerais",
-		text: "J'aimerais qu'on se parle plus, qu'on se comprenne mieux. Chaque mot avec toi compte...",
-		// image: img6,
+		title: "L'évidence d'être ensemble",
+		paragraphs: ["Tu m'as demandé comment je savais que je t'aimais.. Et la réponse est au fond de moi. C'est cette sensation de bien-être naturel, ce pur bonheur d'être juste là, près de toi." ,
+      "Aimer, pour moi, c'est cette évidence de se sentir simplement bien et à ma place à tes côtés."
+    ],
+		image: img6,
+    mediaPlacement: "right",
 	},
 	{
-		title: "Avant la fin",
-		text: "Avant de tourner la dernière page, sache que chaque moment avec toi est précieux...",
-		// image: img7,
+		title: "Pour demain",
+		paragraphs: ["Nous formons une équipe magnifique, capable de conquérir le monde si nous prenons soin du rythme de l'autre.","Nous méritons de vivre cette belle histoire"],
+		image: img7,
+    mediaPlacement: "below",
+
 	},
 	{
-		title: "Et maintenant ?",
-		text: "Quand tu te sentiras prête, dis-le moi. Je serai là...",
-		// image: img8,
+		title: "",
+		paragraphs: ["Je t'aime pour tout ce que tu es, et je suis reconnaissant chaque jour de t'avoir dans ma vie.","Merci d'être toi."],
+		image: img8,
 		final: true,
 	},
 ];

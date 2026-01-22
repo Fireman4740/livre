@@ -211,10 +211,7 @@
   }
 
   @media (max-width: 768px) {
-    .cover {
-      width: 320px;
-      height: 440px;
-    }
+
 
     .title {
       font-size: 2rem;

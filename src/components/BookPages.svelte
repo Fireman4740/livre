@@ -213,10 +213,12 @@
   /* Default: media above text */
   .page-layout.media-above {
     flex-direction: column;
+    align-items: center;
   }
 
   .page-layout.media-below {
     flex-direction: column;
+    align-items: center;
   }
 
   .page-layout.media-below .media-block {
@@ -229,16 +231,24 @@
 
   .page-layout.media-left,
   .page-layout.media-right {
-    flex-direction: row;
-    align-items: flex-start;
+    display: flow-root;
+  }
+
+  .page-layout.media-left .media-block {
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 4px;
   }
 
   .page-layout.media-right .media-block {
-    order: 2;
+    float: right;
+    margin-left: 12px;
+    margin-bottom: 4px;
   }
 
-  .page-layout.media-right .text-block {
-    order: 1;
+  .page-layout.media-above .media-block,
+  .page-layout.media-below .media-block {
+    width: 100%;
   }
 
   .media-block {
@@ -248,33 +258,35 @@
   .text-block {
     flex: 1 1 auto;
     min-width: 0;
+    width: 100%;
   }
 
   .page-media {
-    width: 100%;
-    max-height: 160px;
+    max-width: 100%;
+    max-height: 130px;
     object-fit: contain;
     image-rendering: pixelated;
     display: block;
-    margin: 0 auto 1rem;
+    margin: 0 auto 0.5rem;
   }
 
   /* When media is left/right, constrain its width so text has room */
   .page-layout.media-left .media-block,
   .page-layout.media-right .media-block {
-    width: 42%;
-    max-width: 180px;
+    width: 35%;
+    max-width: 120px;
   }
 
   .page-layout.media-left .page-media,
   .page-layout.media-right .page-media {
     margin: 0;
-    max-height: 140px;
+    max-height: 100px;
   }
   
   .page-title {
-    margin: 0 0 1rem 0;
-    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    line-height: 1.2;
     color: #1A1410;
     text-align: center;
   }
@@ -283,6 +295,8 @@
     margin: 0;
     white-space: pre-wrap;
     text-align: justify;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 
   .heart-animation {
