@@ -45,7 +45,7 @@
     pagesVisible = false;
     isTransitioning = true;
 
-    // Laisser un tick pour que la cover redevienne visible avant le tween.
+    // Laisser le fondu-out démarrer avant le reverse.
     setTimeout(() => {
       bookCoverRef?.closeBook?.(() => {
         stage = "cover";
@@ -53,7 +53,7 @@
         isClosing = false;
         pagesVisible = false;
       });
-    }, 50);
+    }, 250);
   }
 
   function handleChoice(action) {
@@ -83,12 +83,17 @@
   <ParticleBackground />
   <div class="center" >
   <div class="book-container">
-    <div class="cover-wrapper" class:is-opening={isTransitioning} class:hidden={stage === "reading" && !isTransitioning}>
+    <div
+      class="cover-wrapper"
+      class:is-opening={isTransitioning}
+      class:is-closing={isClosing}
+      class:hidden={stage === "reading" && !isTransitioning && !isClosing}
+    >
       <BookCover bind:this={bookCoverRef} onopen={handleOpened} onstart={startOpening} onflat={handleFlat} />
     </div>
 
     {#if stage === "reading" || (isTransitioning && stage === "cover")}
-      <div class="pages-wrapper" class:visible={pagesVisible || stage === "reading"}>
+      <div class="pages-wrapper" class:visible={pagesVisible || (stage === "reading" && !isClosing)}>
         <BookPages 
           bind:this={bookPagesRef} 
           {pages} 
@@ -162,6 +167,11 @@
     opacity: 1;
   }
 
+  /* Pendant la fermeture, on veut la cover déjà alignée sur la tranche (pas de slide) */
+  .cover-wrapper.is-closing {
+    transition: opacity 0.25s ease-in-out;
+  }
+
   .cover-wrapper.hidden {
     opacity: 0;
     pointer-events: none;
@@ -214,8 +224,7 @@
   .navigation-buttons {
     position: absolute;
     bottom: 40px;
-    left: 50%;
-    transform: translateX(-48%);
+    transform: translateX(3px);
     display: flex;
     gap: 3rem;
     align-items: center;

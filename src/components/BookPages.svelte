@@ -8,13 +8,38 @@
   let carouselEl = $state(null);
   let currentPage = $state(0);
 
+  function getParagraphs(page) {
+    if (!page) return [];
+    if (Array.isArray(page.paragraphs)) return page.paragraphs.filter(Boolean);
+    return [page.text, page.text2].filter(Boolean);
+  }
+
+  function splitWords(text) {
+    return (text ?? "").split(/(\s+)/);
+  }
+
+  function getMediaPlacement(page) {
+    const value = (page?.mediaPlacement || page?.mediaPosition || "above").toLowerCase();
+    if (value === "below" || value === "bottom") return "below";
+    if (value === "left") return "left";
+    if (value === "right") return "right";
+    return "above";
+  }
+
+  let textTween = $state(null);
+
   // Animation d'apparition du texte mot par mot au chargement
   $effect(() => {
     if (isOpen && currentPage === 0) {
-      // Sélectionne tous les mots de la première double page
-      const words = document.querySelectorAll('.first-page-word');
+      if (!carouselEl) return;
+
+      // Sélectionne uniquement les mots de la première double-page (slide 0)
+      const words = carouselEl.querySelectorAll(
+        '.carousel-item:first-child .first-page-word'
+      );
       if (words.length > 0) {
-        gsap.fromTo(words, 
+        textTween?.kill?.();
+        textTween = gsap.fromTo(words, 
           { opacity: 0 },
           { 
             opacity: 1, 
@@ -75,26 +100,46 @@
                   <div>
                     {#if pair[0]}
                       {#if pair[0].title}<h2 class="page-title">{pair[0].title}</h2>{/if}
-                      {#if pair[0].image}<img src={pair[0].image} alt={pair[0].title || ""} class="page-image" />{/if}
+
+                      {@const placement0 = getMediaPlacement(pair[0])}
+
+                      <div class="page-layout" class:media-above={placement0 === "above"} class:media-below={placement0 === "below"} class:media-left={placement0 === "left"} class:media-right={placement0 === "right"}>
+                        {#if pair[0].image}
+                          <div class="media-block">
+                            <img
+                              src={pair[0].image}
+                              alt={pair[0].title || ""}
+                              class="page-media"
+                              loading="lazy"
+                            />
+                          </div>
+                        {/if}
+
+                        <div class="text-block">
                       
-                      <!-- Texte animé pour la première page, statique pour les autres -->
-                      {#if i === 0 && pair[0].text}
+                      <!-- Texte animé pour la première double-page, statique pour les autres -->
+                      {#if i === 0 && getParagraphs(pair[0]).length}
                         <p class="page-text animated-container">
-                          {#each pair[0].text.split(/(\s+)/) as word}
-                             <span class="first-page-word">{word}</span>
-                          {/each}
-                          {#each pair[0].text2.split(/(\s+)/) as word}
-                             <span class="first-page-word">{word}</span>
+                          {#each getParagraphs(pair[0]) as para, pIndex}
+                            {#each splitWords(para) as word}
+                              <span class="first-page-word">{word}</span>
+                            {/each}
+                            {#if pIndex < getParagraphs(pair[0]).length - 1}
+                              <br /><br />
+                            {/if}
                           {/each}
                         </p>
                       {:else}
-                        <p class="page-text">{pair[0].text}</p>
-                        <p class="page-text">{pair[0].text2}</p>
+                        {#each getParagraphs(pair[0]) as para}
+                          <p class="page-text">{para}</p>
+                        {/each}
                       {/if}
 
-                      {#if pair[0].hasHeart}
-                        <div class="heart-animation">❤️</div>
-                      {/if}
+                        {#if pair[0].hasHeart}
+                          <div class="heart-animation">❤️</div>
+                        {/if}
+                        </div>
+                      </div>
                     {/if}
                   </div>
                 </div>
@@ -104,24 +149,43 @@
                   <div>
                     {#if pair[1]}
                       {#if pair[1].title}<h2 class="page-title">{pair[1].title}</h2>{/if}
-                      {#if pair[1].image}<img src={pair[1].image} alt={pair[1].title || ""} class="page-image" />{/if}
+
+                      {@const placement1 = getMediaPlacement(pair[1])}
+
+                      <div class="page-layout" class:media-above={placement1 === "above"} class:media-below={placement1 === "below"} class:media-left={placement1 === "left"} class:media-right={placement1 === "right"}>
+                        {#if pair[1].image}
+                          <div class="media-block">
+                            <img
+                              src={pair[1].image}
+                              alt={pair[1].title || ""}
+                              class="page-media"
+                              loading="lazy"
+                            />
+                          </div>
+                        {/if}
+
+                        <div class="text-block">
                       
-                       <!-- Texte animé pour la première page, statique pour les autres -->
-                      {#if i === 0 && pair[1].text}
+                       <!-- Texte animé pour la première double-page, statique pour les autres -->
+                      {#if i === 0 && getParagraphs(pair[1]).length}
                         <p class="page-text animated-container">
-                          {#each pair[1].text.split(/(\s+)/) as word}
-                             <span class="first-page-word">{word}</span>
-                          {/each}
-                          {#each pair[1].text2.split(/(\s+)/) as word}
-                             <span class="first-page-word">{word}</span>
+                          {#each getParagraphs(pair[1]) as para, pIndex}
+                            {#each splitWords(para) as word}
+                              <span class="first-page-word">{word}</span>
+                            {/each}
+                            {#if pIndex < getParagraphs(pair[1]).length - 1}
+                              <br /><br />
+                            {/if}
                           {/each}
                         </p>
                       {:else}
-                        <p class="page-text">{pair[1].text}</p>
-                        <p class="page-text">{pair[1].text2}</p>
+                        {#each getParagraphs(pair[1]) as para}
+                          <p class="page-text">{para}</p>
+                        {/each}
                       {/if}
 
-                     
+                        </div>
+                      </div>
                     {/if}
                   </div>
                 </div>
@@ -140,24 +204,86 @@
 </div>
 
 <style>
+  .page-layout {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  /* Default: media above text */
+  .page-layout.media-above {
+    flex-direction: column;
+  }
+
+  .page-layout.media-below {
+    flex-direction: column;
+  }
+
+  .page-layout.media-below .media-block {
+    order: 2;
+  }
+
+  .page-layout.media-below .text-block {
+    order: 1;
+  }
+
+  .page-layout.media-left,
+  .page-layout.media-right {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .page-layout.media-right .media-block {
+    order: 2;
+  }
+
+  .page-layout.media-right .text-block {
+    order: 1;
+  }
+
+  .media-block {
+    flex: 0 0 auto;
+  }
+
+  .text-block {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .page-media,
   .page-image {
     width: 100%;
-    max-height: 150px;
+    max-height: 160px;
     object-fit: contain;
     image-rendering: pixelated;
     display: block;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem;
+  }
+
+  /* When media is left/right, constrain its width so text has room */
+  .page-layout.media-left .media-block,
+  .page-layout.media-right .media-block {
+    width: 42%;
+    max-width: 180px;
+  }
+
+  .page-layout.media-left .page-media,
+  .page-layout.media-right .page-media {
+    margin: 0;
+    max-height: 140px;
   }
   
   .page-title {
     margin: 0 0 1rem 0;
     font-size: 1.2rem;
     color: #1A1410;
+    text-align: center;
   }
 
   .page-text {
     margin: 0;
     white-space: pre-wrap;
+    text-align: justify;
   }
 
   .heart-animation {

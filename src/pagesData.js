@@ -2,7 +2,7 @@
 // J'utilise une image existante comme placeholder pour éviter les erreurs.
 // Une fois vos images ajoutées, décommentez les imports appropriés.
 
-// import img1 from './assets/images/page-1.png';
+import img1 from './assets/images/paper.png';
 // import img2 from './assets/images/page-2.png';
 // import img3 from './assets/images/page-3.png';
 // import img4 from './assets/images/page-4.png';
@@ -15,14 +15,22 @@
 
 export default [
   {
-    title: "",
-    text: "Je t'écris dans la douceur de la nuit, alors que tout est paisible. Ces mots viennent du cœur, pour toi...",
-    text2: "Chaque instant avec toi est un trésor que je chéris profondément.",
-    // image: img1, 
+    title: "Dans la nuit",
+    // Contenu possible par page :
+    // - title: string (affiché centré)
+    // - image: string (png/jpg/gif, affiché au-dessus du texte)
+    // - mediaPlacement: "above" | "below" | "left" | "right" (position de l'image)
+    // - paragraphs: string[] (1 ou 2 paragraphes, recommandé)
+    // Compat : text + text2 restent supportés si vous préférez.
+   paragraphs:["Je t'écris dans la douceur de la nuit, alors que tout est paisible. Ces mots viennent du cœur, pour toi...",
+    "Chaque instant avec toi est un trésor que je chéris profondément."],
+    image: img1, 
+    mediaPlacement: "below",
+
   },
   {
     title: "Ces lectures",
-    text: "Ces moments où on ne fait rien, juste lire côte à côte. Le silence n'est jamais vide quand tu es là...",
+    paragraphs: ["Ces moments où on ne fait rien, juste lire côte à côte. Le silence n'est jamais vide quand tu es là..."],
     // image: img2,
   },
   {
