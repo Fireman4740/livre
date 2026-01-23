@@ -7,9 +7,10 @@ import img2 from './assets/images/montagne.png';
 import img3 from './assets/images/train.png';
 //import img4 from './assets/images/page-4.png';
 import img5 from './assets/images/protection.png';
-import img6 from './assets/images/kiss-lit.png';
+import img6 from './assets/sprites/bn.gif';
 import img7 from './assets/images/cafe.png';
 import img8 from './assets/images/kiss.png';
+
 
 // import placeholder from './assets/images/bouton.png';
 
@@ -40,18 +41,20 @@ export default [
 	},
 	{
 		title: "Le rythme et la distance",
-		paragraphs: [ "Venir te voir est un bonheur, mais les trajets et l'organisation sont aussi des efforts que je fournis avec tout mon amour.",
-    "Si je choisis de rester travailler certains jours, c'est pour mieux préserver notre temps ensemble sans être épuisé."
-		],
+		paragraphs: [ 
+            "C'est parce que je tiens à nous que je dois parfois ménager mes forces. Les allers-retours sont des voyages que je fais avec joie, mais ils puisent dans mes réserves.",
+            "Choisir de rester travailler certains jours, c'est m'assurer de pouvoir t'offrir le meilleur de moi-même quand nous nous retrouvons."
+        ],
 		image: img3,
-    mediaPlacement: "below",
+    mediaPlacement: "left",
 	},
 	{
 		title: "Mes peurs silencieuses",
-    paragraphs: ["Quand je sens que mes limites te blessent, je me sens envahi par une grande culpabilité et une peur de mal faire." , 
-      "J'ai besoin de savoir que je peux te dire mes contraintes sans que tu doutes de la force de mes sentiments pour toi."
-    ],
-    // image: img4,
+    paragraphs: [
+            "Parfois, j'ai peur que mes limites soient perçues comme une absence, et cette idée fait naître en moi une ombre de culpabilité.", 
+            "Ressentir que mes moments de recul sont compris comme un besoin de souffle m'apaise, et me permet de garder mon cœur grand ouvert vers toi."
+		],
+			// image: img4,
 	},
 	{
 		title: "Ma protection",
@@ -63,23 +66,29 @@ export default [
 	},
 	{
 		title: "L'évidence d'être ensemble",
-		paragraphs: ["Tu m'as demandé comment je savais que je t'aimais.. Et la réponse est au fond de moi. C'est cette sensation de bien-être naturel, ce pur bonheur d'être juste là, près de toi." ,
-      "Aimer, pour moi, c'est cette évidence de se sentir simplement bien et à ma place à tes côtés."
-    ],
+		paragraphs: [
+            "C'est justement parce que je me sens si bien à tes côtés que j'apprends à laisser tomber ces défenses, petit à petit.",
+            "Tu m'as demandé comment je savais que je t'aimais... La réponse est là, dans cette sensation de paix et de bonheur naturel quand nous sommes ensemble."
+        ],
 		image: img6,
     mediaPlacement: "right",
 	},
 	{
 		title: "Pour demain",
-		paragraphs: ["Nous formons une équipe magnifique, capable de conquérir le monde si nous prenons soin du rythme de l'autre.","Nous méritons de vivre cette belle histoire"],
+		paragraphs: [
+            "Aimer, c'est cette évidence de se sentir à sa place, que l'on discute ou que l'on partage simplement un silence.",
+            "Ensemble, nous formons une équipe magnifique, capable de conquérir le monde si nous prenons soin du rythme de l'autre"
+        ],
 		image: img7,
     mediaPlacement: "below",
 
 	},
 	{
 		title: "",
-		paragraphs: ["Je t'aime pour tout ce que tu es, et je suis reconnaissant chaque jour de t'avoir dans ma vie.","Merci d'être toi."],
+		paragraphs: ["Nous méritons de vivre cette belle histoire","Je t'aime pour tout ce que tu es, et je suis reconnaissant chaque jour de t'avoir dans ma vie.","Merci d'être toi."],
 		image: img8,
 		final: true,
+
 	},
+
 ];
