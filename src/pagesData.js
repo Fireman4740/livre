@@ -71,7 +71,7 @@ export default [
             "Tu m'as demandé comment je savais que je t'aimais... La réponse est là, dans cette sensation de paix et de bonheur naturel quand nous sommes ensemble."
         ],
 		image: img6,
-    mediaPlacement: "right",
+    mediaPlacement: "below",
 	},
 	{
 		title: "Pour demain",
