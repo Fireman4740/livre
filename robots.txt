@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+# Indexing is disabled via meta tags in index.html (noindex,nofollow).
