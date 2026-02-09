@@ -1,11 +1,11 @@
 <script>
-  import ParticleBackground from "./components/ParticleBackground.svelte";
-  import BookCover from "./components/BookCover.svelte";
-  import BookPages from "./components/BookPages.svelte";
+  import ParticleBackground from "./components/background/ParticleBackground.svelte";
+  import BookCover from "./components/book/BookCover.svelte";
+  import BookPages from "./components/book/BookPages.svelte";
   import boutonImg from "./assets/images/bouton.png";
   import arrowLeft from "./assets/images/bouton-nav-left.png";
   import arrowRight from "./assets/images/bouton-nav-right.png";
-  import pages from "./pagesData.js";
+  import pages from "./data/book-pages.js";
 
   let stage = $state("cover"); // cover | reading | final
   let isTransitioning = $state(false);
@@ -54,12 +54,6 @@
         pagesVisible = false;
       });
     }, 250);
-  }
-
-  function handleChoice(action) {
-    console.log("Choix effectué:", action);
-    // On pourrait ajouter une animation de fin ici
-    stage = "cover"; 
   }
 
   function closeLivre() {
@@ -290,4 +284,5 @@
     transform: scale(1.1);
     filter: drop-shadow(0 6px 8px rgba(0,0,0,0.4)) brightness(1.1);
   }
+
 </style>

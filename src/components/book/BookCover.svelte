@@ -1,8 +1,8 @@
 <script>
   import { gsap } from "gsap";
-  import coverImg from "../assets/images/coverbok.png";
-  import leftPageImg from "../assets/images/left-page.png";
-  import rightPageImg from "../assets/images/right-page.png";
+  import coverImg from "../../assets/images/coverbok.png";
+  import leftPageImg from "../../assets/images/left-page.png";
+  import rightPageImg from "../../assets/images/right-page.png";
 
   let { onopen, onstart, onflat } = $props();
   

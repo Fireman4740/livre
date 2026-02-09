@@ -1,6 +1,6 @@
 <script>
-  import arrowLeft from "../assets/images/bouton-nav-left.png";
-  import arrowRight from "../assets/images/bouton-nav-right.png";
+  import arrowLeft from "../../assets/images/bouton-nav-left.png";
+  import arrowRight from "../../assets/images/bouton-nav-right.png";
 
   let { activeIndex, total, onprev, onnext } = $props();
 

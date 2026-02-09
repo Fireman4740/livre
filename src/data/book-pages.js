@@ -2,17 +2,17 @@
 // J'utilise une image existante comme placeholder pour éviter les erreurs.
 // Une fois vos images ajoutées, décommentez les imports appropriés.
 
-import img1 from "./assets/images/paper.png";
-import img2 from './assets/images/montagne.png';
-import img3 from './assets/images/train.png';
-//import img4 from './assets/images/page-4.png';
-import img5 from './assets/images/protection.png';
-import img6 from './assets/sprites/bn.gif';
-import img7 from './assets/images/cafe.png';
-import img8 from './assets/images/kiss.png';
+import img1 from "../assets/images/paper.png";
+import img2 from "../assets/images/montagne.png";
+import img3 from "../assets/images/train.png";
+//import img4 from "../assets/images/page-4.png";
+import img5 from "../assets/images/protection.png";
+import img6 from "../assets/sprites/bn.gif";
+import img7 from "../assets/images/cafe.png";
+import img8 from "../assets/images/kiss.png";
 
 
-// import placeholder from './assets/images/bouton.png';
+// import placeholder from "../assets/images/bouton.png";
 
 export default [
 	{

@@ -1,58 +1,61 @@
-# Pour nous – Livre Minecraft
+# Pour nous - Livre Minecraft
 
-Un livre interactif d'amour inspiré de Minecraft, créé avec Svelte 5 et GSAP.
+Livre interactif d'amour construit avec Svelte 5, Vite et GSAP.
 
-## 🚀 Installation
+## Installation
 
 ```bash
 npm install
 ```
 
-## 💻 Développement
+## Developpement
 
 ```bash
 npm run dev
 ```
 
-## 🏗️ Build
+## Build
 
 ```bash
 npm run build
 ```
 
-## 📁 Structure du projet
+## Architecture
 
-```
+```text
+/public
+  /myvalentine
+    index.html                 # Sous-page accessible via /livre/myvalentine
+  saint-valentin.html          # Redirection legacy vers /myvalentine
+  robots.txt
+
 /src
   /assets
-    /images        # Illustrations pixel art (page-1.png à page-8.png)
-    /sprites       # Sprites animés (heart-sprite.png)
+    /images                    # Images du livre
+    /sprites                   # Sprites/animations
   /components
-    ParticleBackground.svelte  # Fond animé avec particules dorées
-    BookCover.svelte           # Couverture du livre avec animation d'ouverture
-    BookPages.svelte           # Container des pages avec navigation
-    PageContent.svelte         # Contenu d'une page (illustration + texte)
-    NavigationControls.svelte  # Boutons prev/next + compteur + barre de progression
-    FinalChoice.svelte         # Dernière page avec choix "Ce soir / Demain"
-  App.svelte                   # Composant principal avec gestion des états
-  main.js                      # Point d'entrée
-  app.css                      # Styles globaux et variables CSS
-  pagesData.js                 # Données des 8 pages du livre
+    /background
+      ParticleBackground.svelte
+    /book
+      BookCover.svelte
+      BookPages.svelte
+    /legacy
+      NavigationControls.svelte
+      PageContent.svelte
+  /data
+    book-pages.js              # Contenu texte/images des pages du livre
+  /styles
+    app.css                    # Styles globaux
+  App.svelte                   # Orchestration de l'experience
+  main.js                      # Point d'entree
 ```
 
-## 🎨 Assets à ajouter
+## URLs
 
-Place tes images pixel art dans `/src/assets/images/` :
-- `page-1.png` à `page-8.png` (180×180 pixels recommandé)
+- App principale: `/livre/`
+- Sous-page Saint-Valentin: `/livre/myvalentine`
 
-## ✨ Fonctionnalités
+## Notes
 
-- ✅ Animation d'ouverture de couverture (GSAP)
-- ✅ Navigation entre les pages (boutons + flèches clavier)
-- ✅ Swipe tactile sur mobile
-- ✅ Particules dorées animées
-- ✅ Animations de transition entre pages
-- ✅ Barre de progression
-- ✅ Page finale avec choix interactif
-- ✅ Accessibilité (aria-labels, navigation clavier)
-- ✅ Responsive (mobile, tablette, desktop)
+- Le projet reste volontairement sans routeur SPA: la sous-page est statique (`public/myvalentine/index.html`).
+- Les composants `src/components/legacy` sont conserves pour reference, mais non utilises dans l'application actuelle.
